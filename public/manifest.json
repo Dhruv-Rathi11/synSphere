@@ -1,0 +1,17 @@
+{
+  "name": "SyncSphere — Offline-First Data Synchronization Platform",
+  "short_name": "SyncSphere",
+  "description": "Universal schema-driven offline data collection with semantic AI reconciliation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b14",
+  "theme_color": "#070b14",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
