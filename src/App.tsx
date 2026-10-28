@@ -14,7 +14,6 @@ import { RecordListView } from './components/RecordListView';
 import { OutboxQueueList } from './components/OutboxQueueList';
 import { DualWorkerSimulation } from './components/DualWorkerSimulation';
 import { NetworkSimulatorBar } from './components/NetworkSimulatorBar';
-import { PitchDeck } from './components/PitchDeck';
 import {
   Zap,
   Edit,
@@ -23,7 +22,6 @@ import {
   BarChart3,
   Layers,
   UploadCloud,
-  Presentation,
   CheckCircle2,
   ChevronDown,
   Activity,
@@ -53,7 +51,7 @@ function SyncSphereCore() {
 
   // Active navigation tab
   const [activeTab, setActiveTab] = useState<
-    'form' | 'records' | 'outbox' | 'conflicts' | 'schema' | 'analytics' | 'partition' | 'deck'
+    'form' | 'records' | 'outbox' | 'conflicts' | 'schema' | 'analytics' | 'partition'
   >('form');
 
   // Loaded schemas from IndexedDB
@@ -231,19 +229,6 @@ function SyncSphereCore() {
                 </button>
               </>
             )}
-
-            {/* Common Architecture Deck Tab */}
-            <button
-              onClick={() => setActiveTab('deck')}
-              className={`px-3 py-1.5 rounded-xl font-bold flex items-center gap-1.5 cursor-pointer transition-all ${
-                activeTab === 'deck'
-                  ? 'bg-gradient-to-r from-purple-500 to-indigo-500 text-white shadow-md'
-                  : 'text-purple-300 hover:text-white hover:bg-purple-500/10'
-              }`}
-            >
-              <Presentation className="w-3.5 h-3.5" />
-              <span>{t('navigation.architecture')}</span>
-            </button>
           </nav>
 
           {/* Right Header Toolbar: Schema Switcher, Role View Switcher, i18n, Sync Chip */}
@@ -378,15 +363,6 @@ function SyncSphereCore() {
               </button>
             </>
           )}
-
-          <button
-            onClick={() => setActiveTab('deck')}
-            className={`px-3 py-1 rounded-lg whitespace-nowrap ${
-              activeTab === 'deck' ? 'bg-purple-500 text-white font-bold' : 'text-purple-300'
-            }`}
-          >
-            Architecture
-          </button>
         </div>
       </header>
 
@@ -428,9 +404,6 @@ function SyncSphereCore() {
         {activeTab === 'partition' && (
           <DualWorkerSimulation onNavigateToTriage={() => setActiveTab('conflicts')} />
         )}
-
-        {/* System Architecture Presentation Deck Tab */}
-        {activeTab === 'deck' && <PitchDeck />}
       </main>
 
       {/* Footer */}
